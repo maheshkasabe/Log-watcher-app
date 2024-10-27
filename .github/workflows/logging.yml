@@ -2,7 +2,7 @@ name: Log Pipeline Data
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   log-pipeline:
