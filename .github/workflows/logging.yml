@@ -1,0 +1,33 @@
+name: Log Pipeline Data
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  log-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Run and Log Pipeline Data
+      run: |
+        # Run your script or commands here
+        echo "Running pipeline process..."
+        
+        # Example command (replace this with your actual process)
+        node test.js
+        
+        # Log output to a file
+        node test.js > pipeline-output.log 2>&1
+        
+        # Verify the output
+        cat pipeline-output.log
+        
+    - name: Upload Log File
+      uses: actions/upload-artifact@v3
+      with:
+        name: pipeline-logs
+        path: pipeline-output.log
