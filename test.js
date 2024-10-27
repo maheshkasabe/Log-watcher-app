@@ -12,4 +12,4 @@ setInterval(function(){
     console.log("log updated");
     });
     counter++;
-},1000);
+},10);
